@@ -1,0 +1,10 @@
+[Client]
+	addr = "127.0.0.1:3306"
+	dsn = "root:xxxxxxxxx@tcp(mysql:3306)/kratos_frame?timeout=10s&readTimeout=8s&writeTimeout=10s&parseTime=true&loc=Local&charset=utf8mb4,utf8"
+	readDSN = []
+	active = 20
+	idle = 10
+	idleTimeout ="4h"
+	queryTimeout = "200ms"
+	execTimeout = "300ms"
+	tranTimeout = "400ms"

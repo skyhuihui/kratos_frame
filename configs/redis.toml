@@ -1,0 +1,12 @@
+[Client]
+	name = "kratos_frame"
+	proto = "tcp"
+	addr = "redis:6379"
+	idle = 10
+	active = 10
+	dialTimeout = "5s"
+	readTimeout = "5s"
+	writeTimeout = "5s"
+	idleTimeout = "10s"
+[RedisPass]
+    password = "xxxxxxx"

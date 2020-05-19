@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package ecode;
+
+enum CommonErrCode {
+    CommonUndefined = 0;
+    Success = 200;
+    SendSmsErr = 50001; // 发送短信验证码失败
+    SendEmailErr = 50002; // 发送邮箱验证码失败
+    SmsCodeTimeOut = 50003; // 短信验证码已过期
+    EmailCodeTimeOut = 50004; // 邮箱验证码已过期
+    VerifySmsErr = 50005; // 短信验证失败
+    VerifyEmailErr = 50006; // 邮箱验证失败
+    InsertErr = 50007; //添加失败
+    FindErr = 50008; //查看失败
+    UpdateErr = 50009; //修改失败
+    DeleteErr = 50010; //删除失败
+    NoData = 50011; //数据不存在
+    CreatTokenErr = 50012; //创建token失败
+    VerifyTokenErr = 50013; //token验证失败
+    VerifyRoleErr = 50014; //权限验证失败
+    GoogleVerifyErr = 50015; // 谷歌验证失败
+    SystemMaintenance = 50016; // 系统维护
+
+    NoLogin = 60000; // 用户未登录
+    LoginErr = 60001; // 登录失败
+    TokenErr = 60002; // Token认证失败
+    NoUser = 60003; // 用户不存在
+    PhoneErr = 60004; // 手机号错误
+    PassWordErr = 60005; // 密码错误
+    ArgsErr = 60006; // 参数错误
+    RegisterCodeErr = 60007; // 邀请码验证失败
+    UserAlreadyExists = 60008; // 用户已存在
+    CreatUserErr = 60009; // 创建用户失败
+    CreatUserInviteErr = 60010; // 创建用户级别失败
+    UserDisabled = 60011; // 账户禁用
+    UserLogged = 60012; // 其他设备已登录
+    LogoutErr = 60013; // 退出登录失败
+
+}

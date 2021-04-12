@@ -1,9 +1,7 @@
-package main
+package tmpl
 
 import (
-	"os"
 	"strings"
-	"text/template"
 )
 
 // 注意新增，查询，删除，修改 均会吧穿参通过反射赋值给相应的处理结构体，请保证参数同名
@@ -94,27 +92,5 @@ func GenService(tmplData ModelTmpl) error {
 	isExist(service)
 	filePath := service + "/" + strings.ToLower(tmplData.ModelName) + ".go"
 
-	if _, err := os.Stat(filePath); !os.IsNotExist(err) {
-		err := os.Remove(filePath)
-		if err != nil {
-			return err
-		}
-	}
-
-	f, err := os.Create(filePath)
-	if err != nil {
-		return err
-	}
-
-	tmpl, err := template.New("").Parse(serviceTmpl)
-	if err != nil {
-		return err
-	}
-
-	err = tmpl.Execute(f, tmplData)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return tmpl(filePath, serverTmpl, tmplData)
 }

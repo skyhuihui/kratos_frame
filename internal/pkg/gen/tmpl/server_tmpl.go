@@ -1,9 +1,7 @@
-package main
+package tmpl
 
 import (
-	"os"
 	"strings"
-	"text/template"
 )
 
 var serverTmpl = `
@@ -61,27 +59,5 @@ func GenServer(tmplData ModelTmpl) error {
 	isExist(server)
 	filePath := server + "/" + strings.ToLower(tmplData.ModelName) + ".go"
 
-	if _, err := os.Stat(filePath); !os.IsNotExist(err) {
-		err := os.Remove(filePath)
-		if err != nil {
-			return err
-		}
-	}
-
-	f, err := os.Create(filePath)
-	if err != nil {
-		return err
-	}
-
-	tmpl, err := template.New("").Parse(serverTmpl)
-	if err != nil {
-		return err
-	}
-
-	err = tmpl.Execute(f, tmplData)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return tmpl(filePath, serviceTmpl, tmplData)
 }
